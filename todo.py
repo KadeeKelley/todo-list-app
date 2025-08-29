@@ -2,6 +2,7 @@
 
 # Step 1: Start with an empty list to hold tasks
 tasks = []
+completed_tasks = []
 
 
 # Step 2: Add a task
@@ -13,6 +14,10 @@ def view_tasks():
     print("To Do:")
     for i, task in enumerate(tasks, start = 1):
         print(f"{i}. {task}")
+    
+    print("Completed:")
+    for task in completed_tasks:
+        print("✅ "+task)
 
 # Step 4: Delete a task
 def delete_task(task):
@@ -20,6 +25,9 @@ def delete_task(task):
 
 
 # Step 5: Mark task complete
+def mark_complete(task):
+    completed_tasks.append(tasks[task])
+    tasks.pop(task)
 
 # Step 6: Save/load tasks (extra stretch for today)
 
@@ -28,8 +36,10 @@ def delete_task(task):
 if __name__ == "__main__":
     add_task("Finish Cyber 201 assignment")
     add_task("Push code to GitHub")
+    add_task("History assignment")
+    add_task("Engineering assignment")
     view_tasks()
-    #mark_complete(0)
+    mark_complete(0)
     delete_task(0)
     view_tasks()
    # save_tasks()
